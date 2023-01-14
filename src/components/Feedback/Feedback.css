@@ -1,0 +1,116 @@
+.main-container{
+    /* height:100%;
+    width:100%; */
+    /* margin-bottom: 10rem; */
+}
+
+/* .mobile::click{
+    border:none;
+} */
+.uk-card{
+    /* background-color: #DDE8FC; */
+    background-color: rgb(31, 22, 22);
+}
+
+.img-upload{
+    background-color: #1976d2;
+}
+.form{
+    background-color:#DDE8FC ;
+
+}
+.feedback{
+    margin-left: 3rem;
+    padding-top:2rem;
+}
+.name{
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    /* margin-bottom: 1.5rem; */
+}
+.name label{
+    margin-right: 3rem;
+}
+
+.gender{
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    margin-top:2rem;
+}
+.gender label{
+    margin-right:3rem;
+}
+.input{
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    margin-top:2rem;
+}
+.input input{
+    margin-right:2rem;
+    margin-left:2rem;
+}
+.submit button{
+    margin-top: 3rem;
+    margin-bottom:3rem;
+    margin-left:auto;
+}
+
+.b{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+input[type="radio"] {
+    /* margin-right: 1rem; */
+    margin: 0.5rem;
+}
+
+.size{
+    margin-top:10px;
+}
+
+.suggestion{
+    width: 400px;
+    height:200px;
+}
+
+
+.button-submit-feedback{
+    background-color: #1976d2;
+    margin-left:90px;
+    /* width: 80px;
+    height: 30px;
+   */
+  
+ 
+}
+
+.uk-card-title{
+    font-size:2.5rem;
+}
+
+
+@media (min-width:300px) and (max-width:700px) {
+    .form{
+        background-color:#DDE8FC ;
+        width: fit-content;   
+    }
+    .main-container{
+        width: fit-content;
+        background-color: #DDE8FC;
+    }
+    .submit button{
+        margin-top: 3rem;
+        margin-bottom:3rem;
+        margin-left: 0px;
+    }
+    .new-line{
+        /* display: flex;
+        flex-direction: column; */
+        /* margin-left:40px; */
+        display: block;
+    }
+}

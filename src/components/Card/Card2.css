@@ -1,0 +1,100 @@
+.cred{
+    margin-bottom: 25px
+}
+.clr{
+    background-color: rgb(222, 236, 243,0.8);
+    border-color: rgb(0, 0, 0);
+    
+}
+
+
+.size{
+    margin-left:-260px;
+    
+}
+.first{
+    background-color: rgb(19, 82, 193);
+}
+.cardcenter{
+    margin-right: -100px;  
+}
+
+.email, .password, .captcha{
+    margin:6px;
+    padding: 4px 4px;
+}
+.email-main2{
+  padding: 4px 4px;
+  margin:6px;
+  margin-bottom:-2rem;
+}
+.password{
+    margin-left:8px;
+}
+
+.captcha{
+    margin-left:13px;
+}
+
+
+
+.captcha-img{
+    margin-top:1px;   
+    width:35%;
+}
+.otp{
+    margin-top:-2rem; 
+    margin-left:5rem;
+
+}
+
+.submit{
+    margin-top:-40px;
+    margin-left:9rem;
+
+}
+.justify-content-center label{
+     font-weight: 600;
+}
+.style-demo{
+    height:100%;
+    width:100%;  
+}
+.send{
+    /* background: aliceblue; */
+    margin-right: 6rem;
+    
+}
+.verify{
+    background-color: aliceblue;
+    margin-right:-3rem;
+    
+    
+}
+
+/* .button, .input, .optgroup, .select, .textarea {
+    margin: 14px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+} */
+
+
+@media (min-width:300px) and (max-width:700px) {
+    .resp-but{
+        margin-top:30px;
+        
+        
+    }
+    .send{
+        /* background: aliceblue; */
+        margin-right: 6rem;
+        margin-left: 50px
+    }
+    .verify{
+        background-color: aliceblue;
+        margin-right:-3rem;
+        
+        
+    }
+}
