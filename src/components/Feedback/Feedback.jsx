@@ -36,6 +36,16 @@ const Feedback = () => {
   const [msg, setMessage] = useState("");
   const [file, setFile] = useState();
 
+  const current = new Date();
+  const time =
+    String(current.getHours()).padStart(2, 0) +
+    ":" +
+    String(current.getMinutes()).padStart(2, 0) +
+    ":" +
+    String(current.getSeconds()).padStart(2, 0);
+  const date = `${current.getDate()}/${current.getMonth() +
+    1}/${current.getFullYear()}`;
+
   // console.log("cookies",cookies.logged_in);
   useEffect(() => {
     setMessage("");
@@ -48,6 +58,94 @@ const Feedback = () => {
 
   const [searchParams] = useSearchParams();
   // console.log(searchParams.get("station"));
+
+  const callbackWithImage = async () => {
+    let data = new FormData();
+    data.append("file", file, file.name);
+
+    const response1 = await axios
+      .post("/image/upload", data, {
+        headers: {
+          accept: "application/json",
+          "Accept-Language": "en-US,en;q=0.8",
+          "Content-Type": `multipart/form-data; boundary=${data._boundary}`
+        }
+      })
+      .then(function(response) {
+        console.log(response);
+        return response;
+      })
+      .catch(function(error) {
+        console.log(error);
+        return false;
+      });
+
+    const response = await axios
+      .post("/feedback", {
+        // const response = await axios.post('http://localhost:7777/app/feedback', {
+        username: name,
+        gender: gender,
+        mobile: mobile,
+        email: email,
+        empStatus: emps,
+        age: age,
+        duration: duration,
+        distance: distance,
+        commute: commute,
+        service: service,
+        cleanliness: cleanliness,
+        support: support,
+        safety: safety,
+        otherSuggestion: otherSuggestion,
+        imageLink: response1.data,
+        date: `${time} - ${date}`,
+        station: searchParams.get("station")
+      })
+      .then(function(response) {
+        console.log(response);
+        return response;
+      })
+      .catch(function(error) {
+        console.log(error);
+
+        return error;
+      });
+    return response;
+  };
+
+  const callBackWithoutImage = async () => {
+    const response = await axios
+      .post("/feedback", {
+        // const response = await axios.post('http://localhost:7777/app/feedback', {
+        username: name,
+        gender: gender,
+        mobile: mobile,
+        email: email,
+        empStatus: emps,
+        age: age,
+        duration: duration,
+        distance: distance,
+        commute: commute,
+        service: service,
+        cleanliness: cleanliness,
+        support: support,
+        safety: safety,
+        otherSuggestion: otherSuggestion,
+        imageLink: "",
+        date: `${time} - ${date}`,
+        station: searchParams.get("station")
+      })
+      .then(function(response) {
+        console.log(response);
+        return response;
+      })
+      .catch(function(error) {
+        console.log(error);
+
+        return error;
+      });
+    return response;
+  };
 
   const call = async () => {
     // console.log("here")
@@ -69,110 +167,17 @@ const Feedback = () => {
       //   safety !== ""
     ) {
       // console.log("gu")
-      const current = new Date();
-      const time =
-        String(current.getHours()).padStart(2, 0) +
-        ":" +
-        String(current.getMinutes()).padStart(2, 0) +
-        ":" +
-        String(current.getSeconds()).padStart(2, 0);
-      const date = `${current.getDate()}/${current.getMonth() +
-        1}/${current.getFullYear()}`;
 
       if (file) {
-        let data = new FormData();
-        data.append("file", file, file.name);
-
-        const response1 = await axios
-          .post("/image/upload", data, {
-            headers: {
-              accept: "application/json",
-              "Accept-Language": "en-US,en;q=0.8",
-              "Content-Type": `multipart/form-data; boundary=${data._boundary}`
-            }
-          })
-          .then(function(response) {
-            console.log(response);
-            return response;
-          })
-          .catch(function(error) {
-            console.log(error);
-            return false;
-          });
-
-        const response = await axios
-          .post("/feedback", {
-            // const response = await axios.post('http://localhost:7777/app/feedback', {
-            username: name,
-            gender: gender,
-            mobile: mobile,
-            email: email,
-            empStatus: emps,
-            age: age,
-            duration: duration,
-            distance: distance,
-            commute: commute,
-            service: service,
-            cleanliness: cleanliness,
-            support: support,
-            safety: safety,
-            otherSuggestion: otherSuggestion,
-            imageLink: response1.data,
-            date: `${time} - ${date}`,
-            station: searchParams.get("station")
-          })
-          .then(function(response) {
-            console.log(response);
-            return response;
-          })
-          .catch(function(error) {
-            console.log(error);
-
-            return error;
-          });
-
-        // console.log(response1);
+        const res = callbackWithImage().then(r => r);
+        console.log("res", res);
         navigate("/thankyou");
       } else {
-        const response = await axios
-          .post("/feedback", {
-            // const response = await axios.post('http://localhost:7777/app/feedback', {
-            username: name,
-            gender: gender,
-            mobile: mobile,
-            email: email,
-            empStatus: emps,
-            age: age,
-            duration: duration,
-            distance: distance,
-            commute: commute,
-            service: service,
-            cleanliness: cleanliness,
-            support: support,
-            safety: safety,
-            otherSuggestion: otherSuggestion,
-            imageLink: "",
-            date: `${time} - ${date}`,
-            station: searchParams.get("station")
-          })
-          .then(function(response) {
-            console.log(response);
-            return response;
-          })
-          .catch(function(error) {
-            console.log(error);
-
-            return error;
-          });
+        const res = callBackWithoutImage().then(r => r);
+        console.log("res", res);
         navigate("/thankyou");
       }
-
-      // console.log("response1", response1);
-
-      // console.log(file);
     } else {
-      // console.log("hu")
-
       setMessage("Enter Email id");
       window.scrollTo(0, 0);
       // console.log("Enter all fields")
@@ -689,12 +694,12 @@ const Feedback = () => {
     </div>
   );
 
-  const qus2 = (
-    <div>
-      {qus}
-      {qus}
-    </div>
-  );
+  // const qus2 = (
+  //   <div>
+  //     {qus}
+  //     {qus}
+  //   </div>
+  // );
 
   return (
     <div class="main-container">
@@ -782,7 +787,8 @@ const Feedback = () => {
                       setotherSuggestion(e.target.value);
                     }}
                     type="textarea"
-                    class="size suggestion"
+                    rows={5}
+                    cols={50}
                   />
                 </div>
                 <div className="submit">

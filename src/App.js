@@ -16,39 +16,37 @@ import Dash from "./components/Dash/Dash";
 
 import "./App.css";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route,HashRouter  } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 import axios from "axios";
 import ThankYou from "./components/ThankYou/ThankYou";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 import NavbarTemp from "./components/NavbarTemp/NavbarTemp";
 
-
 const App = () => {
-
-
   return (
     <div>
-
-{      <HashRouter >
-  {/* <Navbar /> */}
-  {/* <Mob_Navbar /> */}
-        {/* <NavbarTemp /> */}
-        <Routes>
-          <Route path="/" element={<NavbarTemp />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="redirect" element={<Redirect />} />
-          <Route path="station" element={<Station />} />
-          <Route path="feedback" element={<Feedback />} />
-          <Route path="/feedback_student" element={<FeedbackStudent />} />
-          <Route path="/thankYou" element={<ThankYou />} />
-          <Route path="/homeadmin" element={<HomeAdmin />} />
-          <Route path="/admin" element={<Dash />} />
-          <Route path="/homeadmin/admin" element={<HomeAdmin />} />
-        </Routes>
-    {/* <Footer /> */}
-    {/* <Mob_Footer /> */}
-      </HashRouter>}
+      {
+        <BrowserRouter>
+          {/* <Navbar /> */}
+          {/* <Mob_Navbar /> */}
+          {/* <NavbarTemp /> */}
+          <Routes>
+            <Route path="/" element={<NavbarTemp />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="redirect" element={<Redirect />} />
+            <Route path="station" element={<Station />} />
+            <Route path="feedback" element={<Feedback />} />
+            <Route path="/feedback_student" element={<FeedbackStudent />} />
+            <Route path="/thankYou" element={<ThankYou />} />
+            <Route path="/homeadmin" element={<HomeAdmin />} />
+            <Route path="/admin" element={<Dash />} />
+            <Route path="/homeadmin/admin" element={<HomeAdmin />} />
+          </Routes>
+          {/* <Footer /> */}
+          {/* <Mob_Footer /> */}
+        </BrowserRouter>
+      }
       {/* <Dash /> */}
     </div>
   );
