@@ -54,7 +54,7 @@ const Dash = () => {
   return (
     <body>
       <div id="main">
-        <div className="container p-3">
+        <div className="container-fluid p-3">
           <div className="row">
             <div className="col-lg-6 mt-5">
               {/* <Link to="https://young-sierra-93895.herokuapp.com/app/getfeedback/download" target="_blank" download>Download</Link> */}
@@ -72,6 +72,19 @@ const Dash = () => {
                         Download the excel
                       </button>
                     </a>
+                  </div>
+                  <br />
+                  <div className="uk-card uk-card-default uk-card-hover uk-card-body p-5 passenger">
+                    <a href={`http://18.183.86.79:8000/app/feedback/delete`}>
+                      <button
+                        onClick={down()}
+                        type="button"
+                        class="btn btn-primary passenger-button"
+                      >
+                        Clear the database
+                      </button>
+                    </a>
+                    <code>This is irreversible</code>
                   </div>
                 </div>
               </div>

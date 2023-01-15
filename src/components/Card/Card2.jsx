@@ -70,7 +70,7 @@ const Card2 = props => {
     }
   }
   return (
-    <div className="demo style-demo">
+    <div className="demo  style-demo">
       <div
         className="modal fade"
         id="staticBackdrop"
@@ -97,7 +97,7 @@ const Card2 = props => {
               <input
                 required
                 type="text"
-                className="form-control size"
+                className="form-control w-50 m-2"
                 placeholder="Enter OTP"
                 aria-label=""
                 aria-describedby="button-addon2"
