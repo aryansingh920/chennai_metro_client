@@ -768,11 +768,7 @@ const Feedback = () => {
 
                 {/* Questions */}
 
-                {searchParams.get("station") === "Airport" ||
-                searchParams.get("station") === "LIC" ||
-                searchParams.get("station") === "Guindy"
-                  ? qus2
-                  : qus}
+                {qus}
 
                 {/* Questions */}
 
